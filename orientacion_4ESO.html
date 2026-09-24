@@ -77,6 +77,9 @@ tr:last-child td{border-bottom:0}
  section{page-break-inside:avoid}
  .print-only{display:block}
 }
+
+.profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:11px}.profile-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.profile-card[hidden]{display:none}.profile-card details{height:100%}.profile-card summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:center;padding:14px;min-height:72px}.profile-card summary::-webkit-details-marker{display:none}.profile-card summary strong{display:block}.profile-card summary small{display:block;color:var(--muted);margin-top:2px}.prof-icon{font-size:1.7rem}.openhint{margin-left:auto;color:var(--muted);font-size:.8rem;font-weight:800}.profile-card details[open] .openhint{font-size:0}.profile-card details[open] .openhint:after{content:'Cerrar ▴';font-size:.8rem}.profile-body{padding:0 14px 15px;border-top:1px solid var(--line)}.levelgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}@media(max-width:600px){.levelgrid{grid-template-columns:1fr}}.levelbox{background:#f8fafc;border:1px solid var(--line);border-radius:11px;padding:10px}.levelbox ul,.jobs{padding-left:1.1rem;margin:.45rem 0}.levelbox li,.jobs li{margin:.25rem 0}.lev{display:inline-block;border-radius:999px;padding:3px 8px;font-size:.72rem;font-weight:900}.lev.gb{background:#dfeffc}.lev.gm{background:#f3f1bd}.lev.gs{background:#fde1b0}.lev.ce{background:#e9defa}.official-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.finder-card{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.finder-side{background:linear-gradient(135deg,#edf8fb,#eef2fb);border:1px solid #d3e4ea;border-radius:15px;padding:17px}@media(max-width:800px){.finder-card{grid-template-columns:1fr}}.fullinput{width:100%;margin-top:5px}textarea{width:100%;min-height:95px;margin-top:5px;padding:10px;border:1px solid #b9c9d4;border-radius:10px;font:inherit;resize:vertical}.planout{display:none;margin-top:14px;padding:15px;border-radius:14px;background:#f2f8fb;border:1px solid var(--line)}.planout.show{display:block}.planline{padding:7px 0;border-bottom:1px dashed var(--line)}.planline:last-child{border-bottom:0}
+
 </style>
 </head>
 <body>
@@ -95,8 +98,11 @@ tr:last-child td{border-bottom:0}
     <a href="#intereses">Mis intereses</a>
     <a href="#rutas">Rutas</a>
     <a href="#bach">Bachillerato</a>
+    <a href="#perfiles">Perfiles FP</a>
     <a href="#fp">FP La Palma</a>
+    <a href="#buscador">Buscador oficial</a>
     <a href="#calendario">Calendario</a>
+    <a href="#miplan">Mi plan</a>
     <a href="#familias">Familias</a>
   </div>
 </nav>
@@ -173,10 +179,72 @@ tr:last-child td{border-bottom:0}
   </div>
 </section>
 
+
+<section id="perfiles">
+<div class="card">
+<h2>5 · FP: qué estudiar y en qué puedes trabajar</h2>
+<p>He integrado los <strong>13 folletos de perfiles profesionales de TodoFP</strong> que has aportado. No dependemos de tener esos PDF alojados junto al HTML: aquí queda resumido su contenido esencial y siempre puedes saltar al recurso oficial.</p>
+<div class="filters no-print"><input id="profileSearch" type="search" placeholder="Buscar: ciberseguridad, marketing, enfermería…"><select id="profileArea"><option value="">Todos los campos</option><option>Ciencia y salud</option><option>Deporte y actividad física</option><option>Empresa, comercio y gestión</option><option>Imagen, estética y diseño</option><option>Informática y tecnología</option><option>Medio ambiente y agraria</option><option>Social y educación</option><option>Turismo, cocina y servicios</option><option>Técnico-industrial</option></select></div>
+<p class="small" id="profileCount"></p><div id="profileGrid" class="profile-grid"><article class="profile-card" data-area="Informática y tecnología" data-hay="informática y comunicaciones informática y tecnología informática de oficina informática y comunicaciones sistemas microinformáticos y redes administración de sistemas informáticos en red desarrollo de aplicaciones multiplataforma desarrollo de aplicaciones web ciberseguridad en entornos de las tecnologías de la información desarrollo de aplicaciones en lenguaje python desarrollo de videojuegos y realidad virtual inteligencia artificial y big data montaje y mantenimiento de sistemas microinformáticos instalación de sistemas y transmisión de datos digitalización y operación documental">
+<details><summary><span class="prof-icon">💻</span><span><strong>Informática y Comunicaciones</strong><small>Informática y tecnología</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Informática de Oficina</li><li>Informática y Comunicaciones</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Sistemas Microinformáticos y Redes</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Administración de Sistemas Informáticos en Red</li><li>Desarrollo de Aplicaciones Multiplataforma</li><li>Desarrollo de Aplicaciones Web</li></ul></div><div class="levelbox"><span class="lev ce">Especialización</span><ul><li>Ciberseguridad en Entornos de las Tecnologías de la Información</li><li>Desarrollo de Aplicaciones en Lenguaje Python</li><li>Desarrollo de Videojuegos y Realidad Virtual</li><li>Inteligencia Artificial y Big Data</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Montaje y mantenimiento de sistemas microinformáticos</li><li>Instalación de sistemas y transmisión de datos</li><li>Digitalización y operación documental</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Técnico-industrial" data-hay="electricidad y electrónica técnico-industrial electricidad y electrónica fabricación de elementos metálicos instalaciones electrotécnicas y mecánica instalaciones de telecomunicaciones instalaciones eléctricas y automáticas automatización y robótica industrial electromedicina clínica mantenimiento electrónico sistemas electrotécnicos y automatizados sistemas de telecomunicaciones e informáticos ciberseguridad en entornos de las tecnologías de operación implementación de redes 5g instalación y mantenimiento de sistemas conectados a internet (iot) robótica colaborativa sistemas de señalización y telecomunicaciones ferroviarias instalaciones eléctricas de baja tensión montaje de antenas y sistemas de comunicación mantenimiento de equipos eléctricos y electrónicos">
+<details><summary><span class="prof-icon">⚡</span><span><strong>Electricidad y Electrónica</strong><small>Técnico-industrial</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Electricidad y Electrónica</li><li>Fabricación de Elementos Metálicos</li><li>Instalaciones Electrotécnicas y Mecánica</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Instalaciones de Telecomunicaciones</li><li>Instalaciones Eléctricas y Automáticas</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Automatización y Robótica Industrial</li><li>Electromedicina Clínica</li><li>Mantenimiento Electrónico</li><li>Sistemas Electrotécnicos y Automatizados</li><li>Sistemas de Telecomunicaciones e Informáticos</li></ul></div><div class="levelbox"><span class="lev ce">Especialización</span><ul><li>Ciberseguridad en Entornos de las Tecnologías de Operación</li><li>Implementación de redes 5G</li><li>Instalación y mantenimiento de sistemas conectados a internet (IoT)</li><li>Robótica Colaborativa</li><li>Sistemas de señalización y telecomunicaciones ferroviarias</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Instalaciones eléctricas de baja tensión</li><li>Montaje de antenas y sistemas de comunicación</li><li>Mantenimiento de equipos eléctricos y electrónicos</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Técnico-industrial" data-hay="transporte y mantenimiento de vehículos técnico-industrial mantenimiento de embarcaciones deportivas y de recreo mantenimiento de vehículos carrocería conducción de vehículos de transporte por carretera electromecánica de maquinaria electromecánica de vehículos automóviles mantenimiento de embarcaciones de recreo mantenimiento de estructuras de madera y mobiliario de embarcaciones de recreo mantenimiento de material rodante ferroviario montaje de estructuras e instalación de sistemas aeronáuticos automoción mantenimiento aeromecánico de aviones con motor de pistón mantenimiento aeromecánico de aviones con motor de turbina mantenimiento aeromecánico de helicópteros con motor de pistón mantenimiento aeromecánico de helicópteros con motor de turbina mantenimiento de sistemas electrónicos y aviónicos de aeronaves aeronaves pilotadas de forma remota - drones inspección técnica y peritación de siniestros en vehículos mantenimiento de vehículos híbridos y eléctricos mantenimiento avanzado de material rodante ferroviario mantenimiento y seguridad en sistemas de vehículos híbridos y eléctricos mantenimiento mecánico, eléctrico y electrónico vinculado al transporte carrocería y electromecánica mantenimiento de embarcaciones y sistemas de transporte">
+<details><summary><span class="prof-icon">🚗</span><span><strong>Transporte y Mantenimiento de Vehículos</strong><small>Técnico-industrial</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Mantenimiento de Embarcaciones Deportivas y de Recreo</li><li>Mantenimiento de Vehículos</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Carrocería</li><li>Conducción de Vehículos de Transporte por Carretera</li><li>Electromecánica de Maquinaria</li><li>Electromecánica de Vehículos Automóviles</li><li>Mantenimiento de Embarcaciones de Recreo</li><li>Mantenimiento de Estructuras de Madera y Mobiliario de Embarcaciones de Recreo</li><li>Mantenimiento de Material Rodante Ferroviario</li><li>Montaje de Estructuras e Instalación de Sistemas Aeronáuticos</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Automoción</li><li>Mantenimiento Aeromecánico de Aviones con Motor de Pistón</li><li>Mantenimiento Aeromecánico de Aviones con Motor de Turbina</li><li>Mantenimiento Aeromecánico de Helicópteros con Motor de Pistón</li><li>Mantenimiento Aeromecánico de Helicópteros con Motor de Turbina</li><li>Mantenimiento de Sistemas Electrónicos y Aviónicos de Aeronaves</li></ul></div><div class="levelbox"><span class="lev ce">Especialización</span><ul><li>Aeronaves pilotadas de forma remota - Drones</li><li>Inspección Técnica y Peritación de Siniestros en Vehículos</li><li>Mantenimiento de Vehículos Híbridos y Eléctricos</li><li>Mantenimiento avanzado de material rodante ferroviario</li><li>Mantenimiento y Seguridad en Sistemas de Vehículos Híbridos y Eléctricos</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Mantenimiento mecánico, eléctrico y electrónico vinculado al transporte</li><li>Carrocería y electromecánica</li><li>Mantenimiento de embarcaciones y sistemas de transporte</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Ciencia y salud" data-hay="sanidad ciencia y salud cuidados auxiliares de enfermería emergencias sanitarias farmacia y parafarmacia anatomía patológica y citodiagnóstico audiología protésica dietética documentación y administración sanitarias higiene bucodental imagen para el diagnóstico y medicina nuclear laboratorio clínico y biomédico ortoprótesis y productos de apoyo prótesis dentales radioterapia y dosimetría atención primaria, comunitaria y especializada transporte y emergencias sanitarias teleasistencia y coordinación de urgencias">
+<details><summary><span class="prof-icon">🩺</span><span><strong>Sanidad</strong><small>Ciencia y salud</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Cuidados Auxiliares de Enfermería</li><li>Emergencias Sanitarias</li><li>Farmacia y Parafarmacia</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Anatomía Patológica y Citodiagnóstico</li><li>Audiología Protésica</li><li>Dietética</li><li>Documentación y Administración Sanitarias</li><li>Higiene Bucodental</li><li>Imagen para el Diagnóstico y Medicina Nuclear</li><li>Laboratorio Clínico y Biomédico</li><li>Ortoprótesis y Productos de Apoyo</li><li>Prótesis Dentales</li><li>Radioterapia y Dosimetría</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Atención primaria, comunitaria y especializada</li><li>Transporte y emergencias sanitarias</li><li>Teleasistencia y coordinación de urgencias</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Social y educación" data-hay="servicios socioculturales y a la comunidad social y educación actividades domésticas y limpieza de edificios atención a personas en situación de dependencia animación sociocultural y turística educación infantil formación para la movilidad segura y sostenible integración social mediación comunicativa promoción de igualdad de género atención a personas en situación de dependencia ayuda a domicilio y asistencia personal apoyo en educación especial y teleasistencia">
+<details><summary><span class="prof-icon">🤝</span><span><strong>Servicios Socioculturales y a la Comunidad</strong><small>Social y educación</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Actividades Domésticas y Limpieza de Edificios</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Atención a Personas en Situación de Dependencia</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Animación Sociocultural y Turística</li><li>Educación Infantil</li><li>Formación para la Movilidad Segura y Sostenible</li><li>Integración Social</li><li>Mediación Comunicativa</li><li>Promoción de Igualdad de Género</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Atención a personas en situación de dependencia</li><li>Ayuda a domicilio y asistencia personal</li><li>Apoyo en educación especial y teleasistencia</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Deporte y actividad física" data-hay="actividades físicas y deportivas deporte y actividad física acceso y conservación en instalaciones deportivas actividades ecuestres guía en el medio natural y de tiempo libre acondicionamiento físico enseñanza y animación sociodeportiva control y apoyo en instalaciones deportivas monitorización y guía de actividades actividades ecuestres y en el medio natural">
+<details><summary><span class="prof-icon">🏃</span><span><strong>Actividades Físicas y Deportivas</strong><small>Deporte y actividad física</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Acceso y Conservación en Instalaciones Deportivas</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Actividades Ecuestres</li><li>Guía en el Medio Natural y de Tiempo Libre</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Acondicionamiento Físico</li><li>Enseñanza y Animación Sociodeportiva</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Control y apoyo en instalaciones deportivas</li><li>Monitorización y guía de actividades</li><li>Actividades ecuestres y en el medio natural</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Empresa, comercio y gestión" data-hay="administración y gestión empresa, comercio y gestión informática de oficina servicios administrativos gestión administrativa administración y finanzas asistencia a la dirección auxiliar de oficina y archivo digitalización y operación documental tareas administrativas y de información">
+<details><summary><span class="prof-icon">📊</span><span><strong>Administración y Gestión</strong><small>Empresa, comercio y gestión</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Informática de Oficina</li><li>Servicios Administrativos</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Gestión Administrativa</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Administración y Finanzas</li><li>Asistencia a la Dirección</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Auxiliar de oficina y archivo</li><li>Digitalización y operación documental</li><li>Tareas administrativas y de información</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Empresa, comercio y gestión" data-hay="comercio y marketing empresa, comercio y gestión servicios comerciales actividades comerciales comercialización de productos alimentarios comercio internacional gestión de ventas y espacios comerciales marketing y publicidad transporte y logística comercio electrónico posicionamiento en buscadores (seo/sem) y comunicación en redes sociales redacción de contenidos digitales para marketing y ventas sociales venta, promoción y atención al cliente gestión de stocks y almacenes logística y contenidos comerciales digitales">
+<details><summary><span class="prof-icon">🛒</span><span><strong>Comercio y Marketing</strong><small>Empresa, comercio y gestión</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Servicios Comerciales</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Actividades Comerciales</li><li>Comercialización de Productos Alimentarios</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Comercio Internacional</li><li>Gestión de Ventas y Espacios Comerciales</li><li>Marketing y Publicidad</li><li>Transporte y Logística</li></ul></div><div class="levelbox"><span class="lev ce">Especialización</span><ul><li>Comercio Electrónico</li><li>Posicionamiento en buscadores (SEO/SEM) y comunicación en redes sociales</li><li>Redacción de contenidos digitales para marketing y ventas sociales</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Venta, promoción y atención al cliente</li><li>Gestión de stocks y almacenes</li><li>Logística y contenidos comerciales digitales</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Turismo, cocina y servicios" data-hay="hostelería y turismo turismo, cocina y servicios actividades de panadería y pastelería alojamiento y lavandería cocina y restauración cocina y gastronomía comercialización de productos alimentarios servicios en restauración agencias de viajes y gestión de eventos dirección de cocina dirección de servicios de restauración gestión de alojamientos turísticos guía, información y asistencias turísticas coordinación del personal en reuniones profesionales, congresos, ferias, exposiciones y eventos panadería y bollería artesanales panadería, pastelería y cocina servicios de restauración alojamiento, lavandería y atención turística">
+<details><summary><span class="prof-icon">🏨</span><span><strong>Hostelería y Turismo</strong><small>Turismo, cocina y servicios</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Actividades de Panadería y Pastelería</li><li>Alojamiento y Lavandería</li><li>Cocina y Restauración</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Cocina y Gastronomía</li><li>Comercialización de Productos Alimentarios</li><li>Servicios en Restauración</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Agencias de Viajes y Gestión de Eventos</li><li>Dirección de Cocina</li><li>Dirección de Servicios de Restauración</li><li>Gestión de Alojamientos Turísticos</li><li>Guía, Información y Asistencias Turísticas</li></ul></div><div class="levelbox"><span class="lev ce">Especialización</span><ul><li>Coordinación del personal en reuniones profesionales, congresos, ferias, exposiciones y eventos</li><li>Panadería y Bollería Artesanales</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Panadería, pastelería y cocina</li><li>Servicios de restauración</li><li>Alojamiento, lavandería y atención turística</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Imagen, estética y diseño" data-hay="imagen personal imagen, estética y diseño peluquería y estética estética y belleza peluquería y cosmética capilar asesoría de imagen personal y corporativa caracterización y maquillaje profesional estética integral y bienestar estilismo y dirección de peluquería termalismo y bienestar estética, maquillaje, depilación y manicura peluquería y tratamientos capilares atención y asesoramiento en empresas del sector">
+<details><summary><span class="prof-icon">💇</span><span><strong>Imagen Personal</strong><small>Imagen, estética y diseño</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Peluquería y Estética</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Estética y Belleza</li><li>Peluquería y Cosmética Capilar</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Asesoría de Imagen Personal y Corporativa</li><li>Caracterización y Maquillaje Profesional</li><li>Estética Integral y Bienestar</li><li>Estilismo y Dirección de Peluquería</li></ul></div><div class="levelbox"><span class="lev ce">Especialización</span><ul><li>Termalismo y Bienestar</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Estética, maquillaje, depilación y manicura</li><li>Peluquería y tratamientos capilares</li><li>Atención y asesoramiento en empresas del sector</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Medio ambiente y agraria" data-hay="agraria medio ambiente y agraria actividades agropecuarias agro-jardinería y composiciones florales aprovechamientos forestales actividades ecuestres aprovechamiento y conservación del medio natural jardinería y floristería producción agroecológica producción agropecuaria ganadería y asistencia en sanidad animal gestión forestal y del medio natural paisajismo y medio rural floristería y arte floral trabajos agrícolas, ganaderos y forestales jardinería, viveros y floristería conservación y aprovechamiento del medio natural">
+<details><summary><span class="prof-icon">🌱</span><span><strong>Agraria</strong><small>Medio ambiente y agraria</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Actividades Agropecuarias</li><li>Agro-jardinería y Composiciones Florales</li><li>Aprovechamientos Forestales</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Actividades Ecuestres</li><li>Aprovechamiento y Conservación del Medio Natural</li><li>Jardinería y Floristería</li><li>Producción Agroecológica</li><li>Producción Agropecuaria</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Ganadería y Asistencia en Sanidad Animal</li><li>Gestión Forestal y del Medio Natural</li><li>Paisajismo y Medio Rural</li></ul></div><div class="levelbox"><span class="lev ce">Especialización</span><ul><li>Floristería y Arte Floral</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Trabajos agrícolas, ganaderos y forestales</li><li>Jardinería, viveros y floristería</li><li>Conservación y aprovechamiento del medio natural</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Técnico-industrial" data-hay="madera, mueble y corcho técnico-industrial carpintería y mueble carpintería y mueble instalación y amueblamiento procesado y transformación de la madera diseño y amueblamiento carpintería, montaje y ensamblado acabados, barnizado y lacado operación de maquinaria de madera y fabricación de muebles">
+<details><summary><span class="prof-icon">🪵</span><span><strong>Madera, Mueble y Corcho</strong><small>Técnico-industrial</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Carpintería y Mueble</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Carpintería y Mueble</li><li>Instalación y Amueblamiento</li><li>Procesado y Transformación de la Madera</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Diseño y Amueblamiento</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Carpintería, montaje y ensamblado</li><li>Acabados, barnizado y lacado</li><li>Operación de maquinaria de madera y fabricación de muebles</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article><article class="profile-card" data-area="Imagen, estética y diseño" data-hay="artes gráficas imagen, estética y diseño artes gráficas impresión gráfica postimpresión y acabados gráficos preimpresión digital diseño y edición de publicaciones impresas y multimedia diseño y gestión de la producción gráfica reprografía y producción gráfica impresión offset, digital y serigrafía manipulado, acabados y producción gráfica">
+<details><summary><span class="prof-icon">🖨️</span><span><strong>Artes Gráficas</strong><small>Imagen, estética y diseño</small></span><span class="openhint">Abrir ▾</span></summary>
+<div class="profile-body"><div class="levelgrid"><div class="levelbox"><span class="lev gb">Grado Básico</span><ul><li>Artes Gráficas</li></ul></div><div class="levelbox"><span class="lev gm">Grado Medio</span><ul><li>Impresión Gráfica</li><li>Postimpresión y Acabados Gráficos</li><li>Preimpresión Digital</li></ul></div><div class="levelbox"><span class="lev gs">Grado Superior</span><ul><li>Diseño y Edición de Publicaciones Impresas y Multimedia</li><li>Diseño y Gestión de la Producción Gráfica</li></ul></div></div>
+<h4>Ejemplos de salidas recogidas en los materiales</h4><ul class="jobs"><li>Reprografía y producción gráfica</li><li>Impresión offset, digital y serigrafía</li><li>Manipulado, acabados y producción gráfica</li></ul>
+<p class="tiny">Fuente: folleto «Perfiles profesionales» de TodoFP aportado para esta familia. Los ejemplos no sustituyen la ficha oficial completa de cada título.</p></div></details></article></div>
+<div class="official-row no-print"><a class="btn" target="_blank" rel="noopener" href="https://www.todofp.es/orientacion-profesional/notengoclaroqueestudiar/perfiles-profesionales.html">📘 Perfiles profesionales · TodoFP</a><a class="btn secondary" target="_blank" rel="noopener" href="https://www.todofp.es/orientacion-profesional/notengoclaroqueestudiar.html">🧭 DecideFP</a></div>
+</div></section>
+
 <section id="fp">
   <div class="card">
-    <h2>5 · FP en La Palma · referencia 2026-27</h2>
-    <p>Esta lista usa la <strong>planificación previa de 2026-27</strong> como radar para 2027-28. Un ciclo que aparece aquí puede cambiar, no abrir grupo o incorporar nuevas opciones el curso siguiente.</p>
+    <h2>6 · FP en La Palma · referencia 2026-27</h2>
+    <p>Esta lista usa la <strong>planificación previa de 2026-27</strong> como radar para 2027-28. Un ciclo que aparece aquí puede cambiar, no abrir grupo o incorporar nuevas opciones el curso siguiente.</p><p class="small"><strong>Después de explorar:</strong> confirma siempre la oferta del curso objetivo con el <a href="#buscador">buscador oficial de centros de Canarias</a>.</p>
     <div class="filters no-print">
       <input id="fpSearch" type="search" placeholder="Buscar ciclo o centro…">
       <select id="fpLevel"><option value="">GM y GS</option><option value="GM">Solo Grado Medio</option><option value="GS">Solo Grado Superior</option></select>
@@ -187,9 +255,25 @@ tr:last-child td{border-bottom:0}
   </div>
 </section>
 
+
+<section id="buscador">
+<div class="card finder-card">
+<div><h2>7 · Comprueba dónde se estudia de verdad</h2><p>La lista de La Palma de este recurso usa la planificación previa 2026-27 como referencia. Para tomar la decisión de <strong>2027-28</strong>, la verificación final debe hacerse en el <strong>Buscador de centros educativos del Gobierno de Canarias</strong>.</p>
+<ol><li>Selecciona <strong>Isla → La Palma</strong>.</li><li>Baja a <strong>Buscador de Enseñanzas</strong>.</li><li>Filtra por enseñanza, nivel, familia/itinerario o ciclo.</li><li>Prueba también la vista <strong>Tabla</strong>.</li><li>Si no aparece en La Palma, amplía a Tenerife o a toda Canarias.</li></ol>
+<div class="official-row no-print"><a class="btn" target="_blank" rel="noopener" href="https://www.gobiernodecanarias.org/educacion/centroseducativos/buscador-centros-openlayers/">🗺️ Abrir buscador oficial de Canarias</a><a class="btn secondary" target="_blank" rel="noopener" href="https://www.todofp.es/que-estudiar.html">🎓 Explorar títulos en TodoFP</a></div></div>
+<div class="finder-side"><strong>Úsalo como verificación final</strong><p><b>Este HTML</b> te ayuda a descubrir opciones y ver lo que había en 2026-27.</p><p><b>El buscador oficial</b> te confirma dónde se imparte realmente cuando se publique la oferta 2027-28.</p><span class="pill">Mapa</span><span class="pill">Tabla</span><span class="pill">Familia</span><span class="pill">Ciclo</span><span class="pill">Modalidad</span><span class="pill">Vacantes FP</span></div>
+</div></section>
+
+
+<section id="especiales">
+<div class="card"><h2>8 · También existen estas rutas</h2><div class="grid2">
+<div class="mode"><strong>🎨 Artes Plásticas y Diseño</strong><p>El proceso de admisión puede incluir <strong>prueba específica</strong>. En 2026, la solicitud de plaza e inscripción a la prueba fue del 9 al 24 de abril y la prueba específica se celebró el 14 de mayo.</p><span class="small">Si esta ruta te interesa, revisa requisitos y prueba específica antes de que llegue abril.</span></div>
+<div class="mode"><strong>🏅 Enseñanzas Deportivas</strong><p>Determinadas modalidades o especialidades requieren <strong>prueba específica</strong> o acreditar un mérito deportivo. En 2026, la solicitud fue del 9 al 24 de abril y las pruebas se realizaron del 11 al 15 de mayo.</p><span class="small">No confundir estos estudios con la familia FP de Actividades Físicas y Deportivas.</span></div>
+</div></div></section>
+
 <section id="calendario">
   <div class="card">
-    <h2>6 · Calendario único · estimación 2027-28</h2>
+    <h2>9 · Calendario único · estimación 2027-28</h2>
     <div class="timeline-note"><strong>Cómo leerlo:</strong> la tercera columna es la fecha oficial de 2026. La cuarta es la <strong>ventana que conviene reservar en 2027</strong>. He dejado margen porque fines de semana, vacaciones y decisiones de la Consejería pueden desplazar las fechas.</div>
     <div class="filters no-print" id="calFilters">
       <button type="button" data-cal="" class="secondary">Todo</button>
@@ -237,9 +321,18 @@ tr:last-child td{border-bottom:0}
   </div>
 </section>
 
+
+<section id="miplan"><div class="card info"><h2>10 · Mi ruta después de 4.º ESO</h2><p>Rellena esto cuando termines el dosier y la exploración. El objetivo es salir con una decisión concreta y alternativas.</p>
+<div class="grid3"><label><b>Campo 1</b><input id="p1" class="fullinput" placeholder="Ej. Informática"></label><label><b>Campo 2</b><input id="p2" class="fullinput" placeholder="Ej. Electricidad"></label><label><b>Campo 3</b><input id="p3" class="fullinput" placeholder="Ej. Diseño"></label></div>
+<div class="grid3" style="margin-top:12px"><label><b>Plan A</b><input id="pa" class="fullinput" placeholder="Mi primera ruta"></label><label><b>Plan B</b><input id="pb" class="fullinput" placeholder="Segunda opción"></label><label><b>Plan C</b><input id="pc" class="fullinput" placeholder="Tercera opción"></label></div>
+<div class="grid2" style="margin-top:12px"><label><b>Centros / orden de preferencia</b><textarea id="centrosPlan" placeholder="1. …
+2. …
+3. …"></textarea></label><label><b>Qué debo hacer y qué fecha no puedo olvidar</b><textarea id="accionesPlan" placeholder="Solicitud, prueba específica, matrícula, optativas…"></textarea></label></div>
+<div class="official-row no-print"><button id="buildPlan" type="button">Generar hoja final</button><button class="secondary" type="button" onclick="window.print()">🖨️ Imprimir / guardar PDF</button></div><div id="planOut" class="planout" aria-live="polite"></div></div></section>
+
 <section id="familias">
   <div class="card">
-    <h2>7 · Guía rápida para familias</h2>
+    <h2>11 · Guía rápida para familias</h2>
     <div class="grid2">
       <div>
         <h3>Qué debería salir decidido de 4.º ESO</h3>
@@ -261,7 +354,7 @@ tr:last-child td{border-bottom:0}
       </div>
     </div>
     <div style="margin-top:15px" class="no-print">
-      <a class="btn" href="guia_familias_4ESO_2027-28.html">Abrir versión breve para familias</a>
+      <a class="btn" href="#familias">👨‍👩‍👧 Ver guía breve para familias</a>
       <button type="button" class="secondary" onclick="window.print()">Imprimir este recurso</button>
     </div>
   </div>
@@ -384,6 +477,47 @@ tr:last-child td{border-bottom:0}
     calButtons.forEach(b => b.style.background = 'white');
     btn.style.background = '#e7f0f8';
   }));
+
+
+  // Perfiles TodoFP: buscador local dentro de las 13 familias integradas
+  const profileSearch = root.getElementById('profileSearch');
+  const profileArea = root.getElementById('profileArea');
+  const profileCount = root.getElementById('profileCount');
+  const profileCards = [...root.querySelectorAll('.profile-card')];
+  const normTxt = (v) => String(v || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  function filterProfiles(){
+    const q = normTxt(profileSearch ? profileSearch.value : '');
+    const area = profileArea ? profileArea.value : '';
+    let n=0;
+    profileCards.forEach(c => {
+      const ok = (!q || normTxt(c.dataset.hay).includes(q)) && (!area || c.dataset.area === area);
+      c.hidden = !ok; if(ok) n++;
+    });
+    if(profileCount) profileCount.textContent = n + ' familias mostradas';
+  }
+  if(profileSearch) profileSearch.addEventListener('input', filterProfiles);
+  if(profileArea) profileArea.addEventListener('change', filterProfiles);
+  filterProfiles();
+
+  // Hoja final del alumno
+  const planBtn=root.getElementById('buildPlan');
+  if(planBtn){
+    planBtn.addEventListener('click',()=>{
+      const v=id => (root.getElementById(id)?.value || '').trim() || '—';
+      const e=t => String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+      const out=root.getElementById('planOut');
+      out.className='planout show';
+      out.innerHTML='<h3>Mi ruta después de 4.º ESO</h3>'+ 
+        '<div class="planline"><b>Mis tres campos:</b> 1) '+e(v('p1'))+' · 2) '+e(v('p2'))+' · 3) '+e(v('p3'))+'</div>'+ 
+        '<div class="planline"><b>Plan A:</b> '+e(v('pa'))+'</div>'+ 
+        '<div class="planline"><b>Plan B:</b> '+e(v('pb'))+'</div>'+ 
+        '<div class="planline"><b>Plan C:</b> '+e(v('pc'))+'</div>'+ 
+        '<div class="planline"><b>Centros / preferencias:</b><br>'+e(v('centrosPlan')).replace(/\n/g,'<br>')+'</div>'+ 
+        '<div class="planline"><b>Acciones y fechas:</b><br>'+e(v('accionesPlan')).replace(/\n/g,'<br>')+'</div>'+ 
+        '<p class="small"><b>Comprobación final:</b> revisar la oferta 2027-28 en el buscador oficial de centros y sustituir las fechas estimadas por las definitivas.</p>';
+      out.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  }
 })();
 </script>
 </body>
