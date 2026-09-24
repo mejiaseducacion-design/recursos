@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orienta 4.º ESO · 2027-28 · IES Luis Cobiella Cuevas</title>
+<style>
+:root {
+  --ink:#123047; --muted:#5f7180; --bg:#f4f8fb; --card:#fff; --line:#d8e3ea;
+  --blue:#1565c0; --cyan:#007c91; --green:#2e7d32; --amber:#9a6700; --red:#b42318;
+  --purple:#6f42c1; --soft:#edf5fb; --shadow:0 10px 30px rgba(18,48,71,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+header{background:linear-gradient(135deg,#113a5c,#156a8a);color:white;padding:34px 18px 28px}
+.wrap{max-width:1180px;margin:auto}
+.eyebrow{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;opacity:.85}
+h1{font-size:clamp(2rem,5vw,4rem);line-height:1.02;margin:.35rem 0 .7rem}
+.lead{max-width:850px;font-size:1.08rem;margin:0;color:#eaf7ff}
+.notice{margin-top:18px;background:#fff7d6;color:#5f4500;border:1px solid #ffe28a;border-radius:14px;padding:12px 14px;font-weight:700}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navin{display:flex;gap:8px;overflow:auto;padding:10px 16px;max-width:1180px;margin:auto}
+.navin a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:750;padding:9px 12px;border-radius:10px}
+.navin a:hover{background:var(--soft)}
+main{padding:24px 16px 70px}
+section{scroll-margin-top:78px;margin:0 auto 28px;max-width:1180px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media(max-width:850px){.grid4,.grid3,.grid2{grid-template-columns:1fr}}
+h2{font-size:1.65rem;margin:0 0 14px}
+h3{margin:.1rem 0 .6rem}
+p{margin:.5rem 0}
+.small{font-size:.9rem;color:var(--muted)}
+.pill{display:inline-block;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800;background:#e9f2f8;color:#24465d;margin:2px}
+.route{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.node{background:#fff;border:1px solid var(--line);padding:10px 12px;border-radius:12px;font-weight:800}
+.arrow{color:var(--muted);font-weight:900}
+.good{border-left:6px solid var(--green)}
+.warn{border-left:6px solid var(--amber)}
+.info{border-left:6px solid var(--blue)}
+.choice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:15px}
+.choice{display:flex;gap:10px;align-items:flex-start;background:white;border:1px solid var(--line);border-radius:13px;padding:12px;min-height:66px}
+.choice input{margin-top:5px;transform:scale(1.25)}
+button,.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:800;cursor:pointer;background:var(--blue);color:white;font-size:.95rem}
+button.secondary,.btn.secondary{background:white;color:var(--ink);border:1px solid var(--line)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.result{margin-top:14px;padding:16px;border-radius:14px;background:#edf8ef;border:1px solid #cde8d0;display:none}
+.result.show{display:block}
+.mode{padding:17px;border-radius:16px;border:1px solid var(--line);background:white}
+.mode strong{display:block;font-size:1.06rem;margin-bottom:4px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.filters input,.filters select{padding:10px 12px;border:1px solid #b9c9d4;border-radius:10px;background:white;font-size:1rem;min-width:160px}
+.fpgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:11px}
+.fpitem{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}
+.fpitem .level{float:right;font-size:.75rem;font-weight:900;padding:4px 7px;border-radius:999px;background:#eef1f4}
+.fpitem h4{margin:0 0 6px;font-size:1rem}
+.fpitem .where{color:var(--muted);font-size:.88rem}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:850px;background:white}
+th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#edf4f8;position:sticky;top:0;z-index:1}
+tr:last-child td{border-bottom:0}
+.tag{display:inline-block;margin-left:7px;padding:2px 7px;border-radius:999px;background:#eef2f5;color:#526372;font-size:.72rem;font-weight:800}
+.timeline-note{background:#fff7d6;border:1px solid #ffe28a;border-radius:14px;padding:14px;margin-bottom:14px}
+.checklist{margin:0;padding-left:1.2rem}
+.checklist li{margin:.5rem 0}
+.kpi{font-size:2rem;font-weight:900;line-height:1}
+.footer-note{font-size:.84rem;color:var(--muted);margin-top:16px}
+.print-only{display:none}
+@media print{
+ nav,.no-print,button{display:none!important}
+ body{background:white}
+ .card{box-shadow:none;break-inside:avoid}
+ section{page-break-inside:avoid}
+ .print-only{display:block}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">IES Luis Cobiella Cuevas · Orientación 4.º ESO</div>
+    <h1>¿Y después de 4.º ESO, qué?</h1>
+    <p class="lead">Un recurso para pasar del “no sé qué hacer” a un <strong>Plan A, Plan B y Plan C</strong>: autoconocimiento, Bachillerato, FP, Artes, Deportivas, oferta de La Palma y calendario estimado 2027-28.</p>
+    <div class="notice">⚠️ Las fechas 2027-28 son una <strong>estimación orientativa</strong> calculada a partir de los calendarios oficiales 2026-27. No son fechas oficiales. Habrá que sustituirlas cuando la Consejería publique las convocatorias de 2027.</div>
+  </div>
+</header>
+
+<nav class="no-print">
+  <div class="navin">
+    <a href="#inicio">Empieza aquí</a>
+    <a href="#intereses">Mis intereses</a>
+    <a href="#rutas">Rutas</a>
+    <a href="#bach">Bachillerato</a>
+    <a href="#fp">FP La Palma</a>
+    <a href="#calendario">Calendario</a>
+    <a href="#familias">Familias</a>
+  </div>
+</nav>
+
+<main>
+<section id="inicio">
+  <div class="card">
+    <h2>1 · La idea importante</h2>
+    <div class="grid3">
+      <div><div class="kpi">①</div><h3>Conócete</h3><p>Completa el dosier: aptitudes, intereses, personalidad, rendimiento y preferencias profesionales.</p></div>
+      <div><div class="kpi">②</div><h3>Explora</h3><p>No busques “la profesión definitiva”. Busca <strong>2 o 3 campos</strong> que te interesen y varias rutas para llegar a ellos.</p></div>
+      <div><div class="kpi">③</div><h3>Decide el siguiente paso</h3><p>Al acabar 4.º debes saber qué vas a solicitar, qué alternativas pondrás y qué fechas no puedes perder.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="intereses">
+  <div class="card">
+    <h2>2 · Mis tres campos de interés</h2>
+    <p>Marca <strong>hasta tres</strong>. Esto es un resumen para ayudarte a interpretar el dosier; no sustituye el trabajo completo de autoconocimiento.</p>
+    <div class="choice-grid" id="interestChoices">
+      <label class="choice"><input type="checkbox" value="informatica"><span><strong>Informática y tecnología</strong><br><span class="small">programación, redes, electrónica, sistemas…</span></span></label>
+      <label class="choice"><input type="checkbox" value="tecnico"><span><strong>Técnico-industrial</strong><br><span class="small">electricidad, mecánica, automoción, instalaciones, construcción…</span></span></label>
+      <label class="choice"><input type="checkbox" value="salud"><span><strong>Ciencia y salud</strong><br><span class="small">sanidad, biología, química, cuidados…</span></span></label>
+      <label class="choice"><input type="checkbox" value="social"><span><strong>Social y educación</strong><br><span class="small">enseñanza, integración, atención a personas…</span></span></label>
+      <label class="choice"><input type="checkbox" value="gestion"><span><strong>Empresa, comercio y gestión</strong><br><span class="small">administración, marketing, ventas…</span></span></label>
+      <label class="choice"><input type="checkbox" value="imagen"><span><strong>Imagen, estética y diseño</strong><br><span class="small">estética, peluquería, diseño, creación visual…</span></span></label>
+      <label class="choice"><input type="checkbox" value="deporte"><span><strong>Deporte y actividad física</strong><br><span class="small">entrenamiento, medio natural, animación…</span></span></label>
+      <label class="choice"><input type="checkbox" value="ambiente"><span><strong>Medio ambiente y agraria</strong><br><span class="small">forestal, agroecología, conservación…</span></span></label>
+      <label class="choice"><input type="checkbox" value="turismo"><span><strong>Turismo, cocina y servicios</strong><br><span class="small">gastronomía, alojamientos, restauración, guía…</span></span></label>
+    </div>
+    <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+      <button id="showMatches" type="button">Ver rutas relacionadas</button>
+      <button id="clearInterests" class="secondary" type="button">Limpiar</button>
+    </div>
+    <div id="interestResult" class="result" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="rutas">
+  <div class="grid2">
+    <div class="card good">
+      <h2>3 · Si obtengo el título de ESO</h2>
+      <p>Las dos rutas principales son <strong>Bachillerato</strong> y <strong>CFGM</strong>. También existen enseñanzas profesionales de Artes Plásticas y Diseño y enseñanzas deportivas, con sus propios requisitos y, en su caso, pruebas específicas.</p>
+      <div class="route"><span class="node">4.º ESO</span><span class="arrow">→</span><span class="node">Título ESO</span><span class="arrow">→</span><span class="node">Bachillerato</span><span class="arrow">→</span><span class="node">PAU / CFGS</span></div>
+      <div class="route"><span class="node">4.º ESO</span><span class="arrow">→</span><span class="node">Título ESO</span><span class="arrow">→</span><span class="node">CFGM</span><span class="arrow">→</span><span class="node">CFGS</span><span class="arrow">→</span><span class="node">Trabajo / Universidad</span></div>
+      <p class="small">Importante: cursar un Grado Medio no cierra la puerta al Grado Superior. El título de Técnico es vía de acceso a CFGS.</p>
+    </div>
+    <div class="card warn">
+      <h2>Si no obtengo el título</h2>
+      <p>Según el material de orientación del centro, las alternativas contempladas son: repetir 4.º si existe posibilidad, prueba de acceso a CFGM según edad, formación básica de personas adultas y curso específico de acceso a Grado Medio.</p>
+      <p class="small">La prueba de acceso a CFGM exige 17 años cumplidos o cumplirlos en el año de la prueba. La situación concreta debe revisarse con Orientación.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Referencia de titulación del IES</h3>
+    <p>El documento aportado por el centro indica que en 4.º ESO se titula con un máximo de dos materias suspendidas, incluidas pendientes. Con más de dos, contempla titulación si se alcanzan al menos cinco competencias adecuadas y una de ellas es CCL o STEM, además de condiciones de asistencia y realización de actividades.</p>
+    <p class="small"><strong>Ojo:</strong> el documento de criterios facilitado corresponde a 2023-24. Para 2027-28 debe comprobarse que la CCP mantiene los mismos criterios.</p>
+  </div>
+</section>
+
+<section id="bach">
+  <div class="card">
+    <h2>4 · Bachillerato: no es una sola opción</h2>
+    <p>El material de Orientación distingue cuatro modalidades. Cada una combina <strong>materias comunes, de modalidad y optativas</strong>.</p>
+    <div class="grid4">
+      <div class="mode"><strong>Ciencias y Tecnología</strong><span class="small">Ruta a explorar si te atraen ciencias, tecnología, ingeniería o ámbitos sanitarios/científicos.</span></div>
+      <div class="mode"><strong>Humanidades y Ciencias Sociales</strong><span class="small">Ruta a explorar si te atraen ámbitos sociales, humanísticos, jurídicos, económicos o de gestión.</span></div>
+      <div class="mode"><strong>Artes</strong><span class="small">Incluye las vías de Artes Plásticas, Imagen y Diseño, y Música y Artes Escénicas.</span></div>
+      <div class="mode"><strong>General</strong><span class="small">Modalidad general indicada en el material de Orientación.</span></div>
+    </div>
+    <div class="notice" style="margin-top:14px">El material aportado no contiene la lista definitiva de asignaturas optativas que ofrecerá el IES en 2027-28. Esa parte debe actualizarse cuando el centro publique su oferta.</div>
+  </div>
+</section>
+
+<section id="fp">
+  <div class="card">
+    <h2>5 · FP en La Palma · referencia 2026-27</h2>
+    <p>Esta lista usa la <strong>planificación previa de 2026-27</strong> como radar para 2027-28. Un ciclo que aparece aquí puede cambiar, no abrir grupo o incorporar nuevas opciones el curso siguiente.</p>
+    <div class="filters no-print">
+      <input id="fpSearch" type="search" placeholder="Buscar ciclo o centro…">
+      <select id="fpLevel"><option value="">GM y GS</option><option value="GM">Solo Grado Medio</option><option value="GS">Solo Grado Superior</option></select>
+      <select id="fpArea"><option value="">Todas las áreas</option><option value="informatica">Informática</option><option value="tecnico">Técnico-industrial</option><option value="salud">Salud</option><option value="social">Social/Educación</option><option value="gestion">Gestión/Comercio</option><option value="imagen">Imagen/Estética</option><option value="deporte">Deporte</option><option value="ambiente">Medio ambiente/Agraria</option><option value="turismo">Turismo/Hostelería</option></select>
+    </div>
+    <p class="small" id="fpCount"></p>
+    <div class="fpgrid" id="fpGrid"></div>
+  </div>
+</section>
+
+<section id="calendario">
+  <div class="card">
+    <h2>6 · Calendario único · estimación 2027-28</h2>
+    <div class="timeline-note"><strong>Cómo leerlo:</strong> la tercera columna es la fecha oficial de 2026. La cuarta es la <strong>ventana que conviene reservar en 2027</strong>. He dejado margen porque fines de semana, vacaciones y decisiones de la Consejería pueden desplazar las fechas.</div>
+    <div class="filters no-print" id="calFilters">
+      <button type="button" data-cal="" class="secondary">Todo</button>
+      <button type="button" data-cal="Bachillerato" class="secondary">Bachillerato</button>
+      <button type="button" data-cal="FP" class="secondary">FP</button>
+      <button type="button" data-cal="Artes Plásticas y Diseño" class="secondary">Artes</button>
+      <button type="button" data-cal="Deportivas" class="secondary">Deportivas</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Hito</th><th>2026-27 real</th><th>2027-28 esperado</th><th>Qué debe hacer la familia/alumno</th></tr></thead>
+        <tbody id="calendarBody">
+          <tr data-kind="General"><td><strong>Publicación orientativa de convocatorias</strong><span class="tag">General</span></td><td>16 feb–5 mar 2026</td><td><strong>mediados de febrero–principios de marzo de 2027</strong></td><td>Empezar a vigilar la web de la Consejería. Aún no solicitar.</td></tr>
+<tr data-kind="Bachillerato"><td><strong>Publicación de plazas y oferta de centros</strong><span class="tag">Bachillerato</span></td><td>17 abr 2026</td><td><strong>16–20 abr 2027</strong></td><td>Comprobar modalidades, optativas, turnos y vacantes.</td></tr>
+<tr data-kind="Bachillerato"><td><strong>Solicitud de plaza</strong><span class="tag">Bachillerato</span></td><td>20 abr–11 may 2026</td><td><strong>19 abr–11 may 2027</strong></td><td>Presentar solicitud. No esperar a junio.</td></tr>
+<tr data-kind="Bachillerato"><td><strong>Listas provisionales</strong><span class="tag">Bachillerato</span></td><td>4 jun 2026</td><td><strong>3–5 jun 2027</strong></td><td>Revisar admitido/no admitido/excluido.</td></tr>
+<tr data-kind="Bachillerato"><td><strong>Reclamaciones</strong><span class="tag">Bachillerato</span></td><td>4–8 jun 2026</td><td><strong>3–8 jun 2027</strong></td><td>Reclamar si hay error.</td></tr>
+<tr data-kind="Bachillerato"><td><strong>Listas definitivas</strong><span class="tag">Bachillerato</span></td><td>26 jun 2026</td><td><strong>25–28 jun 2027</strong></td><td>Comprobar plaza definitiva.</td></tr>
+<tr data-kind="Bachillerato"><td><strong>Matrícula de participantes</strong><span class="tag">Bachillerato</span></td><td>26 jun–8 jul 2026</td><td><strong>25 jun–9 jul 2027</strong></td><td>Formalizar matrícula dentro del plazo.</td></tr>
+<tr data-kind="FP"><td><strong>Publicación de oferta/plazas</strong><span class="tag">FP</span></td><td>7 abr 2026</td><td><strong>6–9 abr 2027</strong></td><td>Ver ciclos realmente autorizados para 2027-28.</td></tr>
+<tr data-kind="FP"><td><strong>Solicitud de plaza GM/GS</strong><span class="tag">FP</span></td><td>9–24 abr 2026</td><td><strong>8–25 abr 2027</strong></td><td>Presentar hasta cinco peticiones por orden de preferencia.</td></tr>
+<tr data-kind="FP"><td><strong>Prueba de acceso FP</strong><span class="tag">FP</span></td><td>9 may 2026</td><td><strong>8–10 may 2027</strong></td><td>Solo para quien necesite esta vía de acceso.</td></tr>
+<tr data-kind="FP"><td><strong>Listas provisionales de admisión</strong><span class="tag">FP</span></td><td>25 jun 2026</td><td><strong>24–28 jun 2027</strong></td><td>Revisar admitido/reserva/excluido.</td></tr>
+<tr data-kind="FP"><td><strong>Listas definitivas</strong><span class="tag">FP</span></td><td>2 jul 2026</td><td><strong>1–5 jul 2027</strong></td><td>Comprobar plaza definitiva.</td></tr>
+<tr data-kind="FP"><td><strong>Matrícula nuevo ingreso</strong><span class="tag">FP</span></td><td>2–9 jul 2026</td><td><strong>1–9 jul 2027</strong></td><td>Matricularse; una plaza no matriculada puede perderse.</td></tr>
+<tr data-kind="FP"><td><strong>Llamamientos de reserva/vacantes</strong><span class="tag">FP</span></td><td>10–28 jul 2026</td><td><strong>9–30 jul 2027</strong></td><td>Revisar correo y aplicación con frecuencia.</td></tr>
+<tr data-kind="FP"><td><strong>Vacantes de septiembre</strong><span class="tag">FP</span></td><td>1–8 sep 2026</td><td><strong>1–10 sep 2027</strong></td><td>Segunda oportunidad si quedaron plazas.</td></tr>
+<tr data-kind="Artes Plásticas y Diseño"><td><strong>Solicitud + prueba específica</strong><span class="tag">Artes Plásticas y Diseño</span></td><td>9–24 abr 2026</td><td><strong>8–25 abr 2027</strong></td><td>Solicitar plaza e inscribirse en la prueba específica si corresponde.</td></tr>
+<tr data-kind="Artes Plásticas y Diseño"><td><strong>Prueba específica</strong><span class="tag">Artes Plásticas y Diseño</span></td><td>14 may 2026</td><td><strong>13–15 may 2027</strong></td><td>Realizar la prueba específica.</td></tr>
+<tr data-kind="Artes Plásticas y Diseño"><td><strong>Calificación definitiva prueba</strong><span class="tag">Artes Plásticas y Diseño</span></td><td>27 may 2026</td><td><strong>26–28 may 2027</strong></td><td>Comprobar resultado.</td></tr>
+<tr data-kind="Artes Plásticas y Diseño"><td><strong>Adjudicación provisional</strong><span class="tag">Artes Plásticas y Diseño</span></td><td>25 jun 2026</td><td><strong>24–28 jun 2027</strong></td><td>Revisar plaza/reserva/exclusión.</td></tr>
+<tr data-kind="Artes Plásticas y Diseño"><td><strong>Adjudicación definitiva</strong><span class="tag">Artes Plásticas y Diseño</span></td><td>2 jul 2026</td><td><strong>1–5 jul 2027</strong></td><td>Comprobar plaza.</td></tr>
+<tr data-kind="Artes Plásticas y Diseño"><td><strong>Matrícula nuevo ingreso</strong><span class="tag">Artes Plásticas y Diseño</span></td><td>2–9 jul 2026</td><td><strong>1–9 jul 2027</strong></td><td>Formalizar matrícula.</td></tr>
+<tr data-kind="Artes Plásticas y Diseño"><td><strong>Convocatoria extraordinaria</strong><span class="tag">Artes Plásticas y Diseño</span></td><td>14–31 jul + 1–4 sep 2026</td><td><strong>segunda mitad de julio + primera semana de septiembre 2027</strong></td><td>Solo si quedan vacantes.</td></tr>
+<tr data-kind="Deportivas"><td><strong>Solicitud + pruebas específicas</strong><span class="tag">Deportivas</span></td><td>9–24 abr 2026</td><td><strong>8–25 abr 2027</strong></td><td>Solicitar plaza e inscripción a prueba si corresponde.</td></tr>
+<tr data-kind="Deportivas"><td><strong>Pruebas específicas</strong><span class="tag">Deportivas</span></td><td>11–15 may 2026</td><td><strong>10–14 may 2027</strong></td><td>Realizar pruebas de acceso específicas.</td></tr>
+<tr data-kind="Deportivas"><td><strong>Adjudicación provisional</strong><span class="tag">Deportivas</span></td><td>1 jun 2026</td><td><strong>31 may–2 jun 2027</strong></td><td>Revisar resultados y plaza.</td></tr>
+<tr data-kind="Deportivas"><td><strong>Adjudicación definitiva</strong><span class="tag">Deportivas</span></td><td>19 jun 2026</td><td><strong>18–21 jun 2027</strong></td><td>Comprobar plaza definitiva.</td></tr>
+<tr data-kind="Deportivas"><td><strong>Matrícula</strong><span class="tag">Deportivas</span></td><td>25 jun–9 jul 2026</td><td><strong>24 jun–9 jul 2027</strong></td><td>Formalizar matrícula.</td></tr>
+<tr data-kind="Deportivas"><td><strong>Convocatoria extraordinaria</strong><span class="tag">Deportivas</span></td><td>14–31 jul + 1–3 sep 2026</td><td><strong>segunda mitad de julio + primera semana de septiembre 2027</strong></td><td>Solo si quedan vacantes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footer-note">La publicación oficial para 2026-27 se produjo entre mediados de febrero y comienzos de marzo de 2026 según los documentos aportados. Por eso, para 2027-28 conviene empezar a comprobar convocatorias desde mediados de febrero de 2027.</p>
+  </div>
+</section>
+
+<section id="familias">
+  <div class="card">
+    <h2>7 · Guía rápida para familias</h2>
+    <div class="grid2">
+      <div>
+        <h3>Qué debería salir decidido de 4.º ESO</h3>
+        <ul class="checklist">
+          <li>Dos o tres campos profesionales que le interesen.</li>
+          <li>Una ruta principal: Bachillerato, CFGM u otra enseñanza.</li>
+          <li>Un <strong>Plan B</strong> y un <strong>Plan C</strong>.</li>
+          <li>Los centros y estudios que pondrá por orden de preferencia.</li>
+          <li>Las fechas de solicitud y matrícula.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Tres ideas que conviene tener claras</h3>
+        <ul class="checklist">
+          <li><strong>FP no cierra la universidad:</strong> GM → GS → universidad es una ruta posible.</li>
+          <li><strong>Bachillerato tampoco obliga a ir a la universidad:</strong> el título de Bachiller permite acceder a CFGS.</li>
+          <li><strong>La matrícula no es lo mismo que la solicitud:</strong> primero se pide plaza y, si se obtiene, después se formaliza.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:15px" class="no-print">
+      <a class="btn" href="guia_familias_4ESO_2027-28.html">Abrir versión breve para familias</a>
+      <button type="button" class="secondary" onclick="window.print()">Imprimir este recurso</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card info">
+    <h2>Mi hoja de salida</h2>
+    <p>El objetivo final es que cada alumno pueda rellenar esto después de trabajar el dosier:</p>
+    <div class="grid2">
+      <div><strong>Mis 3 campos:</strong><br>1. _____________________<br>2. _____________________<br>3. _____________________</div>
+      <div><strong>Plan A:</strong> _____________________<br><strong>Plan B:</strong> _____________________<br><strong>Plan C:</strong> _____________________</div>
+    </div>
+    <p style="margin-top:14px"><strong>Lo que tengo que solicitar en abril:</strong> ________________________________</p>
+    <p><strong>Centro(s) y orden de preferencia:</strong> ________________________________</p>
+    <p><strong>Fecha límite que NO puedo olvidar:</strong> ________________________________</p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h3>Fuentes utilizadas</h3>
+    <p class="small">Dosier “Toma de decisiones · Autoconocimiento” del IES Luis Cobiella Cuevas; “¿Y después de la ESO qué?”; planificación previa de CFGM/CFGS de La Palma 2026-27; calendarios oficiales de admisión 2026-27 de Bachillerato, FP, Artes Plásticas y Diseño y Enseñanzas Deportivas; resolución de pruebas de acceso 2026. Las fechas 2027-28 son una estimación, no una convocatoria oficial.</p>
+  </div>
+</section>
+</main>
+
+<script>
+(() => {
+  const root = document;
+  const fpData = [{"municipio": "Breña Baja", "centro": "IES Las Breñas", "nivel": "GM", "ciclo": "Peluquería y Cosmética Capilar", "area": "imagen"}, {"municipio": "Breña Baja", "centro": "IES Las Breñas", "nivel": "GM", "ciclo": "Carpintería y Mueble", "area": "tecnico"}, {"municipio": "El Paso", "centro": "IES El Paso", "nivel": "GM", "ciclo": "Instalaciones Frigoríficas y de Climatización", "area": "tecnico"}, {"municipio": "El Paso", "centro": "IES El Paso", "nivel": "GS", "ciclo": "Mantenimiento de Instalaciones Térmicas y de Fluidos", "area": "tecnico"}, {"municipio": "Los Llanos de Aridane", "centro": "IES Eusebio Barreto Lorenzo", "nivel": "GM", "ciclo": "Atención a Personas en Situación de Dependencia", "area": "social"}, {"municipio": "Los Llanos de Aridane", "centro": "IES Eusebio Barreto Lorenzo", "nivel": "GS", "ciclo": "Integración Social (semipresencial)", "area": "social"}, {"municipio": "Los Llanos de Aridane", "centro": "IFPA Los Llanos de Aridane", "nivel": "GM", "ciclo": "Aprovechamiento y Conservación del Medio Natural", "area": "ambiente"}, {"municipio": "Los Llanos de Aridane", "centro": "IFPA Los Llanos de Aridane", "nivel": "GM", "ciclo": "Producción Agroecológica", "area": "ambiente"}, {"municipio": "Los Llanos de Aridane", "centro": "IFPA Los Llanos de Aridane", "nivel": "GS", "ciclo": "Gestión Forestal y del Medio Natural", "area": "ambiente"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GM", "ciclo": "Gestión Administrativa", "area": "gestion"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GS", "ciclo": "Administración y Finanzas", "area": "gestion"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GS", "ciclo": "Administración y Finanzas (semipresencial)", "area": "gestion"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GM", "ciclo": "Actividades Comerciales", "area": "gestion"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GS", "ciclo": "Gestión de Ventas y Espacios Comerciales", "area": "gestion"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GS", "ciclo": "Marketing y Publicidad", "area": "gestion"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GM", "ciclo": "Obras de Interior, Decoración y Rehabilitación", "area": "tecnico"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GM", "ciclo": "Estética y Belleza", "area": "imagen"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GS", "ciclo": "Estética Integral y Bienestar", "area": "imagen"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GM", "ciclo": "Sistemas Microinformáticos y Redes", "area": "informatica"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GS", "ciclo": "Administración de Sistemas Informáticos en Red", "area": "informatica"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GS", "ciclo": "Desarrollo de Aplicaciones Web", "area": "informatica"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GM", "ciclo": "Atención a Personas en Situación de Dependencia", "area": "social"}, {"municipio": "Los Llanos de Aridane", "centro": "IES José María Pérez Pulido", "nivel": "GM", "ciclo": "Electromecánica de Vehículos Automóviles", "area": "tecnico"}, {"municipio": "Puntagorda", "centro": "IES Puntagorda", "nivel": "GM", "ciclo": "Instalaciones de Telecomunicaciones", "area": "tecnico"}, {"municipio": "Puntagorda", "centro": "IES Puntagorda", "nivel": "GM", "ciclo": "Cocina y Gastronomía", "area": "turismo"}, {"municipio": "Puntagorda", "centro": "IES Puntagorda", "nivel": "GM", "ciclo": "Aceites de Oliva y Vinos", "area": "ambiente"}, {"municipio": "Puntagorda", "centro": "IES Puntagorda", "nivel": "GM", "ciclo": "Cuidados Auxiliares de Enfermería", "area": "salud"}, {"municipio": "Puntagorda", "centro": "IES Puntagorda", "nivel": "GS", "ciclo": "Integración Social (semipresencial)", "area": "social"}, {"municipio": "Puntagorda", "centro": "IES Puntagorda", "nivel": "GS", "ciclo": "Educación Infantil", "area": "social"}, {"municipio": "San Andrés y Sauces", "centro": "IES Cándido Marante Expósito", "nivel": "GM", "ciclo": "Construcción", "area": "tecnico"}, {"municipio": "San Andrés y Sauces", "centro": "IES Cándido Marante Expósito", "nivel": "GM", "ciclo": "Atención a Personas en Situación de Dependencia", "area": "social"}, {"municipio": "San Andrés y Sauces", "centro": "IES Cándido Marante Expósito", "nivel": "GS", "ciclo": "Educación Infantil", "area": "social"}, {"municipio": "San Andrés y Sauces", "centro": "IES Cándido Marante Expósito", "nivel": "GS", "ciclo": "Integración Social", "area": "social"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Guía en el Medio Natural y de Tiempo Libre", "area": "deporte"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Acondicionamiento Físico", "area": "deporte"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Enseñanza y Animación Sociodeportiva", "area": "deporte"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Gestión Administrativa", "area": "gestion"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Administración y Finanzas", "area": "gestion"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Administración y Finanzas (semipresencial)", "area": "gestion"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Administración y Finanzas + Asistencia a la Dirección (doble titulación)", "area": "gestion"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Gestión Forestal y del Medio Natural (semipresencial)", "area": "ambiente"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Instalaciones Eléctricas y Automáticas", "area": "tecnico"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Sistemas Electrotécnicos y Automatizados", "area": "tecnico"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Energías Renovables", "area": "tecnico"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Cocina y Gastronomía", "area": "turismo"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Servicios en Restauración", "area": "turismo"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Gestión de Alojamientos Turísticos", "area": "turismo"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Guía, Información y Asistencias Turísticas", "area": "turismo"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Guía, Información y Asistencias Turísticas + Agencias de Viajes y Gestión de Eventos (doble titulación)", "area": "turismo"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Panadería, Repostería y Confitería", "area": "turismo"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Cuidados Auxiliares de Enfermería", "area": "salud"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Dietética", "area": "salud"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Emergencias Sanitarias", "area": "salud"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Farmacia y Parafarmacia", "area": "salud"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GS", "ciclo": "Higiene Bucodental", "area": "salud"}, {"municipio": "Santa Cruz de La Palma", "centro": "CIFP Virgen de las Nieves", "nivel": "GM", "ciclo": "Carrocería", "area": "tecnico"}, {"municipio": "Villa de Mazo", "centro": "IES Villa de Mazo", "nivel": "GM", "ciclo": "Sistemas Microinformáticos y Redes", "area": "informatica"}, {"municipio": "Villa de Mazo", "centro": "IES Villa de Mazo", "nivel": "GM", "ciclo": "Electromecánica de Vehículos Automóviles", "area": "tecnico"}, {"municipio": "Villa de Mazo", "centro": "IES Villa de Mazo", "nivel": "GS", "ciclo": "Automoción", "area": "tecnico"}];
+  const areaNames = {
+    informatica:"Informática y tecnología", tecnico:"Técnico-industrial", salud:"Ciencia y salud",
+    social:"Social y educación", gestion:"Empresa, comercio y gestión", imagen:"Imagen, estética y diseño",
+    deporte:"Deporte y actividad física", ambiente:"Medio ambiente y agraria", turismo:"Turismo, cocina y servicios"
+  };
+  const routeText = {
+    informatica:"Explora Bachillerato de Ciencias y Tecnología y, en FP, Sistemas Microinformáticos y Redes → ASIR/DAW u otros superiores relacionados.",
+    tecnico:"Explora Bachillerato de Ciencias y Tecnología y CFGM de electricidad, automoción, instalaciones, construcción o madera.",
+    salud:"Explora Bachillerato de Ciencias y Tecnología y CFGM sanitarios como Emergencias, Farmacia o Cuidados Auxiliares.",
+    social:"Explora Humanidades y Ciencias Sociales y CFGM/CFGS de Servicios Socioculturales y a la Comunidad.",
+    gestion:"Explora Humanidades y Ciencias Sociales/General y FP de Administración, Comercio y Marketing.",
+    imagen:"Explora Artes y FP de Imagen Personal; para Artes Plásticas y Diseño revisa también sus pruebas específicas.",
+    deporte:"Explora opciones vinculadas a actividad física, CFGM Guía en el Medio Natural y CFGS deportivos; algunas enseñanzas deportivas tienen pruebas específicas.",
+    ambiente:"Explora Ciencias y Tecnología y FP Agraria/Forestal/Medio Natural.",
+    turismo:"Explora Humanidades y Ciencias Sociales/General y FP de Hostelería y Turismo."
+  };
+
+  const interestBoxes = [...root.querySelectorAll('#interestChoices input')];
+  const showBtn = root.getElementById('showMatches');
+  const clearBtn = root.getElementById('clearInterests');
+  const res = root.getElementById('interestResult');
+
+  interestBoxes.forEach(cb => cb.addEventListener('change', () => {
+    const checked = interestBoxes.filter(x => x.checked);
+    if (checked.length > 3) {
+      cb.checked = false;
+      alert('Elige como máximo tres campos.');
+    }
+  }));
+
+  showBtn.addEventListener('click', () => {
+    const vals = interestBoxes.filter(x => x.checked).map(x => x.value);
+    if (!vals.length) {
+      res.className = 'result show';
+      res.innerHTML = '<strong>Elige al menos un campo.</strong>';
+      return;
+    }
+    const lis = vals.map(v => `<li><strong>${areaNames[v]}:</strong> ${routeText[v]}</li>`).join('');
+    res.className = 'result show';
+    res.innerHTML = `<strong>Rutas que merece la pena investigar:</strong><ul>${lis}</ul><span class="small">Después filtra la oferta de FP de La Palma con estas mismas áreas.</span>`;
+    root.getElementById('fpArea').value = vals.length === 1 ? vals[0] : '';
+    renderFP();
+  });
+  clearBtn.addEventListener('click', () => {
+    interestBoxes.forEach(x => x.checked = false);
+    res.className = 'result';
+    res.innerHTML = '';
+    root.getElementById('fpArea').value = '';
+    renderFP();
+  });
+
+  const fpGrid = root.getElementById('fpGrid');
+  const fpSearch = root.getElementById('fpSearch');
+  const fpLevel = root.getElementById('fpLevel');
+  const fpArea = root.getElementById('fpArea');
+  const fpCount = root.getElementById('fpCount');
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+  function renderFP() {
+    const q = fpSearch.value.trim().toLowerCase();
+    const lev = fpLevel.value;
+    const ar = fpArea.value;
+    const items = fpData.filter(x =>
+      (!q || (x.ciclo+' '+x.centro+' '+x.municipio).toLowerCase().includes(q)) &&
+      (!lev || x.nivel === lev) &&
+      (!ar || x.area === ar)
+    );
+    fpCount.textContent = `${items.length} opciones de referencia encontradas`;
+    fpGrid.innerHTML = items.map(x => `
+      <article class="fpitem">
+        <span class="level">${esc(x.nivel)}</span>
+        <h4>${esc(x.ciclo)}</h4>
+        <div class="where">${esc(x.centro)} · ${esc(x.municipio)}</div>
+        <div style="margin-top:7px"><span class="pill">${esc(areaNames[x.area] || x.area)}</span></div>
+      </article>`).join('') || '<p>No hay resultados con estos filtros.</p>';
+  }
+  fpSearch.addEventListener('input', renderFP);
+  fpLevel.addEventListener('change', renderFP);
+  fpArea.addEventListener('change', renderFP);
+  renderFP();
+
+  const calButtons = [...root.querySelectorAll('[data-cal]')];
+  const calRows = [...root.querySelectorAll('#calendarBody tr')];
+  calButtons.forEach(btn => btn.addEventListener('click', () => {
+    const kind = btn.dataset.cal;
+    calRows.forEach(row => row.style.display = (!kind || row.dataset.kind === kind || row.dataset.kind === 'General') ? '' : 'none');
+    calButtons.forEach(b => b.style.background = 'white');
+    btn.style.background = '#e7f0f8';
+  }));
+})();
+</script>
+</body>
+</html>
